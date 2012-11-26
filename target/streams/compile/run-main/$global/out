@@ -1,0 +1,892 @@
+[0m[[0minfo[0m] [0mReading lexicon WikiArtWork.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiArtWorkRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiCompetitionsBattlesEvents.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiCompetitionsBattlesEventsRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiFilms.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiFilmsRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiLocations.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiLocationsRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiManMadeObjectNames.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiManMadeObjectNamesRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiOrganizations.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiOrganizationsRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiPeople.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiPeopleRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiSongs.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon WikiSongsRedirects.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon cardinalNumber.txt[0m
+[0m[[0minfo[0m] [0mReading lexicon currencyFinal.txt[0m
+[0m[[0minfo[0m] [0mReading lexicon known_corporations.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon known_country.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon known_jobs.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon known_name.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon known_names.big.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon known_nationalities.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon known_state.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon known_title.lst[0m
+[0m[[0minfo[0m] [0mReading lexicon measurments.txt[0m
+[0m[[0minfo[0m] [0mReading lexicon ordinalNumber.txt[0m
+[0m[[0minfo[0m] [0mReading lexicon temporal_words.txt[0m
+[0m[[0minfo[0m] [0mReading brown cluster file /Users/anzaroot/Ner/Classifiers/Factorie/brownBllipClusters[0m
+[0m[[0minfo[0m] [0mLoaded 947 documents with 14988 sentences with 203621 tokens total from file /Users/anzaroot/Ner/Datasets/Connl03/eng.train[0m
+[0m[[0minfo[0m] [0mLoaded 217 documents with 3466 sentences with 51362 tokens total from file /Users/anzaroot/Ner/Datasets/Connl03/eng.testa[0m
+[0m[[0minfo[0m] [0mTaking 100 and 20[0m
+[0m[[0minfo[0m] [0mInitializing training features[0m
+[0m[[0minfo[0m] [0mInitializing testing features[0m
+[0m[[0minfo[0m] [0mNum TokenFeatures = 255663[0m
+[0m[[0minfo[0m] [0mExample Token features[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.851210 p=0.846452 r=0.856022 (tp=7420 fp=1346 fn=1248 true=8668 pred=8766) acc=0.976933 (198924/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.813773 p=0.821743 r=0.805956 (tp=839 fp=182 fn=202 true=1041 pred=1021)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.632316 p=0.696078 r=0.579254 (tp=497 fp=217 fn=361 true=858 pred=714)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.779190 p=0.769110 r=0.789537 (tp=1962 fp=589 fn=523 true=2485 pred=2551)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.940666 p=0.920089 r=0.962185 (tp=4122 fp=358 fn=162 true=4284 pred=4480)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.883881 p=0.884085 r=0.883678 (tp=1922 fp=252 fn=253 true=2175 pred=2174) acc=0.981348 (50404/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.868085 p=0.864407 r=0.871795 (tp=204 fp=32 fn=30 true=234 pred=236)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.681128 p=0.769608 r=0.610895 (tp=157 fp=47 fn=100 true=257 pred=204)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.778610 p=0.750515 r=0.808889 (tp=364 fp=121 fn=86 true=450 pred=485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.964156 p=0.958367 r=0.970016 (tp=1197 fp=52 fn=37 true=1234 pred=1249)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 1[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.947242 p=0.941733 r=0.952815 (tp=8259 fp=511 fn=409 true=8668 pred=8770) acc=0.993203 (202237/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.922053 p=0.912512 r=0.931796 (tp=970 fp=93 fn=71 true=1041 pred=1063)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.853774 p=0.863962 r=0.843823 (tp=724 fp=114 fn=134 true=858 pred=838)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.925379 p=0.917689 r=0.933199 (tp=2319 fp=208 fn=166 true=2485 pred=2527)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.984466 p=0.977890 r=0.991130 (tp=4246 fp=96 fn=38 true=4284 pred=4342)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.907292 p=0.907919 r=0.906667 (tp=1972 fp=200 fn=203 true=2175 pred=2172) acc=0.983684 (50524/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.897872 p=0.894068 r=0.901709 (tp=211 fp=25 fn=23 true=234 pred=236)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.744856 p=0.790393 r=0.704280 (tp=181 fp=48 fn=76 true=257 pred=229)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.827662 p=0.817787 r=0.837778 (tp=377 fp=84 fn=73 true=450 pred=461)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.970161 p=0.965490 r=0.974878 (tp=1203 fp=43 fn=31 true=1234 pred=1246)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 2[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.975767 p=0.971416 r=0.980157 (tp=8496 fp=250 fn=172 true=8668 pred=8746) acc=0.996783 (202966/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.971510 p=0.960563 r=0.982709 (tp=1023 fp=42 fn=18 true=1041 pred=1065)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.930287 p=0.935218 r=0.925408 (tp=794 fp=55 fn=64 true=858 pred=849)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.966887 p=0.964371 r=0.969416 (tp=2409 fp=89 fn=76 true=2485 pred=2498)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.990949 p=0.985233 r=0.996732 (tp=4270 fp=64 fn=14 true=4284 pred=4334)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.912313 p=0.913364 r=0.911264 (tp=1982 fp=188 fn=193 true=2175 pred=2170) acc=0.984171 (50549/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.899787 p=0.897872 r=0.901709 (tp=211 fp=24 fn=23 true=234 pred=235)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.748988 p=0.780591 r=0.719844 (tp=185 fp=52 fn=72 true=257 pred=237)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.844444 p=0.844444 r=0.844444 (tp=380 fp=70 fn=70 true=450 pred=450)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.971797 p=0.966346 r=0.977310 (tp=1206 fp=42 fn=28 true=1234 pred=1248)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 3[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.987522 p=0.984409 r=0.990655 (tp=8587 fp=136 fn=81 true=8668 pred=8723) acc=0.998306 (203276/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.987100 p=0.981939 r=0.992315 (tp=1033 fp=19 fn=8 true=1041 pred=1052)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.958091 p=0.956977 r=0.959207 (tp=823 fp=37 fn=35 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.986334 p=0.985147 r=0.987525 (tp=2454 fp=37 fn=31 true=2485 pred=2491)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.994189 p=0.990046 r=0.998366 (tp=4277 fp=43 fn=7 true=4284 pred=4320)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.910891 p=0.912362 r=0.909425 (tp=1978 fp=190 fn=197 true=2175 pred=2168) acc=0.984015 (50541/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.905579 p=0.909483 r=0.901709 (tp=211 fp=21 fn=23 true=234 pred=232)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.732794 p=0.763713 r=0.704280 (tp=181 fp=56 fn=76 true=257 pred=237)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840355 p=0.838496 r=0.842222 (tp=379 fp=73 fn=71 true=450 pred=452)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972995 p=0.967923 r=0.978120 (tp=1207 fp=40 fn=27 true=1234 pred=1247)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 4[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.992462 p=0.990013 r=0.994924 (tp=8624 fp=87 fn=44 true=8668 pred=8711) acc=0.998944 (203406/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.989504 p=0.982938 r=0.996158 (tp=1037 fp=18 fn=4 true=1041 pred=1055)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.974985 p=0.973287 r=0.976690 (tp=838 fp=23 fn=20 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.993361 p=0.993162 r=0.993561 (tp=2469 fp=17 fn=16 true=2485 pred=2486)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.996160 p=0.993270 r=0.999066 (tp=4280 fp=29 fn=4 true=4284 pred=4309)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.911019 p=0.913546 r=0.908506 (tp=1976 fp=187 fn=199 true=2175 pred=2163) acc=0.984152 (50548/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.903226 p=0.909091 r=0.897436 (tp=210 fp=21 fn=24 true=234 pred=231)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.736842 p=0.767932 r=0.708171 (tp=182 fp=55 fn=75 true=257 pred=237)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.841287 p=0.840355 r=0.842222 (tp=379 fp=72 fn=71 true=450 pred=451)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 5[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.995221 p=0.993448 r=0.997000 (tp=8642 fp=57 fn=26 true=8668 pred=8699) acc=0.999303 (203479/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.993301 p=0.989514 r=0.997118 (tp=1038 fp=11 fn=3 true=1041 pred=1049)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.981395 p=0.979118 r=0.983683 (tp=844 fp=18 fn=14 true=858 pred=862)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.996985 p=0.995984 r=0.997988 (tp=2480 fp=10 fn=5 true=2485 pred=2490)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.997436 p=0.995812 r=0.999066 (tp=4280 fp=18 fn=4 true=4284 pred=4298)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.911229 p=0.913969 r=0.908506 (tp=1976 fp=186 fn=199 true=2175 pred=2162) acc=0.984288 (50555/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.902386 p=0.916300 r=0.888889 (tp=208 fp=19 fn=26 true=234 pred=227)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.732794 p=0.763713 r=0.704280 (tp=181 fp=56 fn=76 true=257 pred=237)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.843854 p=0.841060 r=0.846667 (tp=381 fp=72 fn=69 true=450 pred=453)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972973 p=0.968675 r=0.977310 (tp=1206 fp=39 fn=28 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 6[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.996773 p=0.995854 r=0.997693 (tp=8648 fp=36 fn=20 true=8668 pred=8684) acc=0.999519 (203523/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.995683 p=0.994253 r=0.997118 (tp=1038 fp=6 fn=3 true=1041 pred=1044)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.984884 p=0.982599 r=0.987179 (tp=847 fp=15 fn=11 true=858 pred=862)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.998390 p=0.998390 r=0.998390 (tp=2481 fp=4 fn=4 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.998484 p=0.997438 r=0.999533 (tp=4282 fp=11 fn=2 true=4284 pred=4293)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.911480 p=0.914008 r=0.908966 (tp=1977 fp=186 fn=198 true=2175 pred=2163) acc=0.984230 (50552/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.904348 p=0.920354 r=0.888889 (tp=208 fp=18 fn=26 true=234 pred=226)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.739837 p=0.774468 r=0.708171 (tp=182 fp=53 fn=75 true=257 pred=235)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.841060 p=0.835526 r=0.846667 (tp=381 fp=75 fn=69 true=450 pred=456)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972581 p=0.967897 r=0.977310 (tp=1206 fp=40 fn=28 true=1234 pred=1246)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 7[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.996946 p=0.995970 r=0.997923 (tp=8650 fp=35 fn=18 true=8668 pred=8685) acc=0.999607 (203541/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.995688 p=0.993308 r=0.998079 (tp=1039 fp=7 fn=2 true=1041 pred=1046)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.986047 p=0.983759 r=0.988345 (tp=848 fp=14 fn=10 true=858 pred=862)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.998390 p=0.998390 r=0.998390 (tp=2481 fp=4 fn=4 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.998601 p=0.997670 r=0.999533 (tp=4282 fp=10 fn=2 true=4284 pred=4292)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.911480 p=0.914008 r=0.908966 (tp=1977 fp=186 fn=198 true=2175 pred=2163) acc=0.984346 (50558/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.906318 p=0.924444 r=0.888889 (tp=208 fp=17 fn=26 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.739837 p=0.774468 r=0.708171 (tp=182 fp=53 fn=75 true=257 pred=235)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972581 p=0.967897 r=0.977310 (tp=1206 fp=40 fn=28 true=1234 pred=1246)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 8[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.997349 p=0.996545 r=0.998154 (tp=8652 fp=30 fn=16 true=8668 pred=8682) acc=0.999666 (203553/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.996646 p=0.994264 r=0.999039 (tp=1040 fp=6 fn=1 true=1041 pred=1046)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.986620 p=0.984901 r=0.988345 (tp=848 fp=13 fn=10 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.998592 p=0.998391 r=0.998793 (tp=2482 fp=4 fn=3 true=2485 pred=2486)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.998950 p=0.998368 r=0.999533 (tp=4282 fp=7 fn=2 true=4284 pred=4289)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.912572 p=0.915741 r=0.909425 (tp=1978 fp=182 fn=197 true=2175 pred=2160) acc=0.984502 (50566/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.906318 p=0.924444 r=0.888889 (tp=208 fp=17 fn=26 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.746939 p=0.785408 r=0.712062 (tp=183 fp=50 fn=74 true=257 pred=233)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972973 p=0.968675 r=0.977310 (tp=1206 fp=39 fn=28 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 9[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.997694 p=0.997005 r=0.998385 (tp=8654 fp=26 fn=14 true=8668 pred=8680) acc=0.999725 (203565/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.997604 p=0.995220 r=1.000000 (tp=1041 fp=5 fn=0 true=1041 pred=1046)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.987194 p=0.986047 r=0.988345 (tp=848 fp=12 fn=10 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.998592 p=0.998391 r=0.998793 (tp=2482 fp=4 fn=3 true=2485 pred=2486)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999300 p=0.998834 r=0.999767 (tp=4283 fp=5 fn=1 true=4284 pred=4288)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.912281 p=0.916087 r=0.908506 (tp=1976 fp=181 fn=199 true=2175 pred=2157) acc=0.984385 (50560/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.908696 p=0.924779 r=0.893162 (tp=209 fp=17 fn=25 true=234 pred=226)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.745902 p=0.787879 r=0.708171 (tp=182 fp=49 fn=75 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.838852 p=0.833333 r=0.844444 (tp=380 fp=76 fn=70 true=450 pred=456)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 10[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.997982 p=0.997350 r=0.998616 (tp=8656 fp=23 fn=12 true=8668 pred=8679) acc=0.999745 (203569/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.997604 p=0.995220 r=1.000000 (tp=1041 fp=5 fn=0 true=1041 pred=1046)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.989523 p=0.988372 r=0.990676 (tp=850 fp=10 fn=8 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.998391 p=0.997990 r=0.998793 (tp=2482 fp=5 fn=3 true=2485 pred=2487)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999533 p=0.999300 r=0.999767 (tp=4283 fp=3 fn=1 true=4284 pred=4286)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.910937 p=0.914312 r=0.907586 (tp=1974 fp=185 fn=201 true=2175 pred=2159) acc=0.984327 (50557/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.900000 p=0.915929 r=0.884615 (tp=207 fp=19 fn=27 true=234 pred=226)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.746939 p=0.785408 r=0.712062 (tp=183 fp=50 fn=74 true=257 pred=233)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.837927 p=0.831510 r=0.844444 (tp=380 fp=77 fn=70 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972144 p=0.968624 r=0.975689 (tp=1204 fp=39 fn=30 true=1234 pred=1243)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 11[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998155 p=0.997695 r=0.998616 (tp=8656 fp=20 fn=12 true=8668 pred=8676) acc=0.999784 (203577/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998561 p=0.997126 r=1.000000 (tp=1041 fp=3 fn=0 true=1041 pred=1044)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.988947 p=0.987224 r=0.990676 (tp=850 fp=11 fn=8 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.998592 p=0.998391 r=0.998793 (tp=2482 fp=4 fn=3 true=2485 pred=2486)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999650 p=0.999533 r=0.999767 (tp=4283 fp=2 fn=1 true=4284 pred=4285)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.910475 p=0.913849 r=0.907126 (tp=1973 fp=186 fn=202 true=2175 pred=2159) acc=0.984230 (50552/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.900000 p=0.915929 r=0.884615 (tp=207 fp=19 fn=27 true=234 pred=226)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.746939 p=0.785408 r=0.712062 (tp=183 fp=50 fn=74 true=257 pred=233)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.835722 p=0.829322 r=0.842222 (tp=379 fp=78 fn=71 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972144 p=0.968624 r=0.975689 (tp=1204 fp=39 fn=30 true=1234 pred=1243)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 12[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998731 p=0.998386 r=0.999077 (tp=8660 fp=14 fn=8 true=8668 pred=8674) acc=0.999818 (203584/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998561 p=0.997126 r=1.000000 (tp=1041 fp=3 fn=0 true=1041 pred=1044)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991274 p=0.989547 r=0.993007 (tp=852 fp=9 fn=6 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999650 p=0.999533 r=0.999767 (tp=4283 fp=2 fn=1 true=4284 pred=4285)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.911398 p=0.914775 r=0.908046 (tp=1975 fp=184 fn=200 true=2175 pred=2159) acc=0.984249 (50553/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.902386 p=0.916300 r=0.888889 (tp=208 fp=19 fn=26 true=234 pred=227)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.745418 p=0.782051 r=0.712062 (tp=183 fp=51 fn=74 true=257 pred=234)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.839779 p=0.835165 r=0.844444 (tp=380 fp=75 fn=70 true=450 pred=455)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972144 p=0.968624 r=0.975689 (tp=1204 fp=39 fn=30 true=1234 pred=1243)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 13[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998674 p=0.998271 r=0.999077 (tp=8660 fp=15 fn=8 true=8668 pred=8675) acc=0.999833 (203587/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998082 p=0.996172 r=1.000000 (tp=1041 fp=4 fn=0 true=1041 pred=1045)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991274 p=0.989547 r=0.993007 (tp=852 fp=9 fn=6 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999650 p=0.999533 r=0.999767 (tp=4283 fp=2 fn=1 true=4284 pred=4285)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.911609 p=0.915199 r=0.908046 (tp=1975 fp=183 fn=200 true=2175 pred=2158) acc=0.984230 (50552/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.902386 p=0.916300 r=0.888889 (tp=208 fp=19 fn=26 true=234 pred=227)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.746939 p=0.785408 r=0.712062 (tp=183 fp=50 fn=74 true=257 pred=233)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.839779 p=0.835165 r=0.844444 (tp=380 fp=75 fn=70 true=450 pred=455)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972144 p=0.968624 r=0.975689 (tp=1204 fp=39 fn=30 true=1234 pred=1243)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 14[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998674 p=0.998271 r=0.999077 (tp=8660 fp=15 fn=8 true=8668 pred=8675) acc=0.999843 (203589/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998082 p=0.996172 r=1.000000 (tp=1041 fp=4 fn=0 true=1041 pred=1045)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991274 p=0.989547 r=0.993007 (tp=852 fp=9 fn=6 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999650 p=0.999533 r=0.999767 (tp=4283 fp=2 fn=1 true=4284 pred=4285)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.912953 p=0.916976 r=0.908966 (tp=1977 fp=179 fn=198 true=2175 pred=2156) acc=0.984230 (50552/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.759184 p=0.798283 r=0.723735 (tp=186 fp=47 fn=71 true=257 pred=233)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.839779 p=0.835165 r=0.844444 (tp=380 fp=75 fn=70 true=450 pred=455)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972144 p=0.968624 r=0.975689 (tp=1204 fp=39 fn=30 true=1234 pred=1243)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 15[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998674 p=0.998271 r=0.999077 (tp=8660 fp=15 fn=8 true=8668 pred=8675) acc=0.999858 (203592/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998082 p=0.996172 r=1.000000 (tp=1041 fp=4 fn=0 true=1041 pred=1045)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991274 p=0.989547 r=0.993007 (tp=852 fp=9 fn=6 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999650 p=0.999533 r=0.999767 (tp=4283 fp=2 fn=1 true=4284 pred=4285)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913164 p=0.917401 r=0.908966 (tp=1977 fp=178 fn=198 true=2175 pred=2155) acc=0.984269 (50554/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.760736 p=0.801724 r=0.723735 (tp=186 fp=46 fn=71 true=257 pred=232)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.839779 p=0.835165 r=0.844444 (tp=380 fp=75 fn=70 true=450 pred=455)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972144 p=0.968624 r=0.975689 (tp=1204 fp=39 fn=30 true=1234 pred=1243)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 16[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998904 p=0.998731 r=0.999077 (tp=8660 fp=11 fn=8 true=8668 pred=8671) acc=0.999882 (203597/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991274 p=0.989547 r=0.993007 (tp=852 fp=9 fn=6 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913204 p=0.917014 r=0.909425 (tp=1978 fp=179 fn=197 true=2175 pred=2157) acc=0.984288 (50555/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.760736 p=0.801724 r=0.723735 (tp=186 fp=46 fn=71 true=257 pred=232)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972144 p=0.968624 r=0.975689 (tp=1204 fp=39 fn=30 true=1234 pred=1243)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 17[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998904 p=0.998731 r=0.999077 (tp=8660 fp=11 fn=8 true=8668 pred=8671) acc=0.999882 (203597/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991274 p=0.989547 r=0.993007 (tp=852 fp=9 fn=6 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913455 p=0.917053 r=0.909885 (tp=1979 fp=179 fn=196 true=2175 pred=2158) acc=0.984307 (50556/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.760736 p=0.801724 r=0.723735 (tp=186 fp=46 fn=71 true=257 pred=232)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 18[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999135 p=0.998962 r=0.999308 (tp=8662 fp=9 fn=6 true=8668 pred=8671) acc=0.999902 (203601/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.993015 p=0.991860 r=0.994172 (tp=853 fp=7 fn=5 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913204 p=0.917014 r=0.909425 (tp=1978 fp=179 fn=197 true=2175 pred=2157) acc=0.984288 (50555/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 19[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999250 p=0.999077 r=0.999423 (tp=8663 fp=8 fn=5 true=8668 pred=8671) acc=0.999912 (203603/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994179 p=0.993023 r=0.995338 (tp=854 fp=6 fn=4 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913204 p=0.917014 r=0.909425 (tp=1978 fp=179 fn=197 true=2175 pred=2157) acc=0.984288 (50555/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 20[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999250 p=0.999077 r=0.999423 (tp=8663 fp=8 fn=5 true=8668 pred=8671) acc=0.999917 (203604/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994179 p=0.993023 r=0.995338 (tp=854 fp=6 fn=4 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913204 p=0.917014 r=0.909425 (tp=1978 fp=179 fn=197 true=2175 pred=2157) acc=0.984269 (50554/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 21[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999250 p=0.999077 r=0.999423 (tp=8663 fp=8 fn=5 true=8668 pred=8671) acc=0.999917 (203604/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994179 p=0.993023 r=0.995338 (tp=854 fp=6 fn=4 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.912742 p=0.916551 r=0.908966 (tp=1977 fp=180 fn=198 true=2175 pred=2157) acc=0.984269 (50554/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.899563 p=0.919643 r=0.880342 (tp=206 fp=18 fn=28 true=234 pred=224)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.839207 p=0.831878 r=0.846667 (tp=381 fp=77 fn=69 true=450 pred=458)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 22[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999250 p=0.999077 r=0.999423 (tp=8663 fp=8 fn=5 true=8668 pred=8671) acc=0.999917 (203604/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994179 p=0.993023 r=0.995338 (tp=854 fp=6 fn=4 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913204 p=0.917014 r=0.909425 (tp=1978 fp=179 fn=197 true=2175 pred=2157) acc=0.984249 (50553/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 23[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999250 p=0.999077 r=0.999423 (tp=8663 fp=8 fn=5 true=8668 pred=8671) acc=0.999917 (203604/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994179 p=0.993023 r=0.995338 (tp=854 fp=6 fn=4 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913204 p=0.917014 r=0.909425 (tp=1978 fp=179 fn=197 true=2175 pred=2157) acc=0.984249 (50553/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 24[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999308 p=0.999193 r=0.999423 (tp=8663 fp=7 fn=5 true=8668 pred=8670) acc=0.999921 (203605/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994758 p=0.994179 r=0.995338 (tp=854 fp=5 fn=4 true=858 pred=859)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999767 r=0.999767 (tp=4283 fp=1 fn=1 true=4284 pred=4284)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913455 p=0.917053 r=0.909885 (tp=1979 fp=179 fn=196 true=2175 pred=2158) acc=0.984249 (50553/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.904348 p=0.920354 r=0.888889 (tp=208 fp=18 fn=26 true=234 pred=226)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 25[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999366 p=0.999308 r=0.999423 (tp=8663 fp=6 fn=5 true=8668 pred=8669) acc=0.999931 (203607/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994758 p=0.994179 r=0.995338 (tp=854 fp=5 fn=4 true=858 pred=859)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999883 p=1.000000 r=0.999767 (tp=4283 fp=0 fn=1 true=4284 pred=4283)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913204 p=0.917014 r=0.909425 (tp=1978 fp=179 fn=197 true=2175 pred=2157) acc=0.984249 (50553/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840132 p=0.833698 r=0.846667 (tp=381 fp=76 fn=69 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 26[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999366 p=0.999308 r=0.999423 (tp=8663 fp=6 fn=5 true=8668 pred=8669) acc=0.999931 (203607/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994758 p=0.994179 r=0.995338 (tp=854 fp=5 fn=4 true=858 pred=859)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999883 p=1.000000 r=0.999767 (tp=4283 fp=0 fn=1 true=4284 pred=4283)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913666 p=0.917478 r=0.909885 (tp=1979 fp=178 fn=196 true=2175 pred=2157) acc=0.984307 (50556/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842337 p=0.835886 r=0.848889 (tp=382 fp=75 fn=68 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 27[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999366 p=0.999308 r=0.999423 (tp=8663 fp=6 fn=5 true=8668 pred=8669) acc=0.999931 (203607/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999520 p=0.999040 r=1.000000 (tp=1041 fp=1 fn=0 true=1041 pred=1042)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994758 p=0.994179 r=0.995338 (tp=854 fp=5 fn=4 true=858 pred=859)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999883 p=1.000000 r=0.999767 (tp=4283 fp=0 fn=1 true=4284 pred=4283)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913666 p=0.917478 r=0.909885 (tp=1979 fp=178 fn=196 true=2175 pred=2157) acc=0.984269 (50554/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842337 p=0.835886 r=0.848889 (tp=382 fp=75 fn=68 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 28[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999423 p=0.999423 r=0.999423 (tp=8663 fp=5 fn=5 true=8668 pred=8668) acc=0.999941 (203609/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=1.000000 p=1.000000 r=1.000000 (tp=1041 fp=0 fn=0 true=1041 pred=1041)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.994758 p=0.994179 r=0.995338 (tp=854 fp=5 fn=4 true=858 pred=859)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999883 p=1.000000 r=0.999767 (tp=4283 fp=0 fn=1 true=4284 pred=4283)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913666 p=0.917478 r=0.909885 (tp=1979 fp=178 fn=196 true=2175 pred=2157) acc=0.984269 (50554/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.901961 p=0.920000 r=0.884615 (tp=207 fp=18 fn=27 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758197 p=0.800866 r=0.719844 (tp=185 fp=46 fn=72 true=257 pred=231)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842337 p=0.835886 r=0.848889 (tp=382 fp=75 fn=68 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.972559 p=0.968650 r=0.976499 (tp=1205 fp=39 fn=29 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 29[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.865274 p=0.860731 r=0.869866 (tp=7540 fp=1220 fn=1128 true=8668 pred=8760) acc=0.984564 (200478/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.818805 p=0.835165 r=0.803074 (tp=836 fp=165 fn=205 true=1041 pred=1001)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.660912 p=0.701571 r=0.624709 (tp=536 fp=228 fn=322 true=858 pred=764)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.804344 p=0.789535 r=0.819718 (tp=2037 fp=543 fn=448 true=2485 pred=2580)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.949764 p=0.935674 r=0.964286 (tp=4131 fp=284 fn=153 true=4284 pred=4415)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.898411 p=0.900277 r=0.896552 (tp=1950 fp=216 fn=225 true=2175 pred=2166) acc=0.983159 (50497/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.873362 p=0.892857 r=0.854701 (tp=200 fp=24 fn=34 true=234 pred=224)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.716981 p=0.777273 r=0.665370 (tp=171 fp=49 fn=86 true=257 pred=220)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.808649 p=0.787368 r=0.831111 (tp=374 fp=101 fn=76 true=450 pred=475)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.971383 p=0.966319 r=0.976499 (tp=1205 fp=42 fn=29 true=1234 pred=1247)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 1[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.962984 p=0.958091 r=0.967928 (tp=8390 fp=367 fn=278 true=8668 pred=8757) acc=0.996606 (202930/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.953979 p=0.952153 r=0.955812 (tp=995 fp=50 fn=46 true=1041 pred=1045)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.882525 p=0.885111 r=0.879953 (tp=755 fp=98 fn=103 true=858 pred=853)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.951697 p=0.944158 r=0.959356 (tp=2384 fp=141 fn=101 true=2485 pred=2525)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.987700 p=0.982003 r=0.993464 (tp=4256 fp=78 fn=28 true=4284 pred=4334)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913444 p=0.914707 r=0.912184 (tp=1984 fp=185 fn=191 true=2175 pred=2169) acc=0.984541 (50568/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.891304 p=0.907080 r=0.876068 (tp=205 fp=21 fn=29 true=234 pred=226)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.767677 p=0.798319 r=0.739300 (tp=190 fp=48 fn=67 true=257 pred=238)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.835722 p=0.829322 r=0.842222 (tp=379 fp=78 fn=71 true=450 pred=457)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975020 p=0.969551 r=0.980551 (tp=1210 fp=38 fn=24 true=1234 pred=1248)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 2[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.985347 p=0.981568 r=0.989156 (tp=8574 fp=161 fn=94 true=8668 pred=8735) acc=0.998664 (203349/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.981888 p=0.974456 r=0.989433 (tp=1030 fp=27 fn=11 true=1041 pred=1057)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.953098 p=0.947066 r=0.959207 (tp=823 fp=46 fn=35 true=858 pred=869)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.982908 p=0.982315 r=0.983501 (tp=2444 fp=44 fn=41 true=2485 pred=2488)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.994073 p=0.989817 r=0.998366 (tp=4277 fp=44 fn=7 true=4284 pred=4321)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.913626 p=0.917865 r=0.909425 (tp=1978 fp=177 fn=197 true=2175 pred=2155) acc=0.984600 (50571/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.888889 p=0.906667 r=0.871795 (tp=204 fp=21 fn=30 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.756098 p=0.791489 r=0.723735 (tp=186 fp=49 fn=71 true=257 pred=235)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.841871 p=0.843750 r=0.840000 (tp=378 fp=70 fn=72 true=450 pred=448)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975413 p=0.970329 r=0.980551 (tp=1210 fp=37 fn=24 true=1234 pred=1247)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 3[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.992237 p=0.989109 r=0.995385 (tp=8628 fp=95 fn=40 true=8668 pred=8723) acc=0.999239 (203466/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.990449 p=0.984805 r=0.996158 (tp=1037 fp=16 fn=4 true=1041 pred=1053)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.970435 p=0.965398 r=0.975524 (tp=837 fp=30 fn=21 true=858 pred=867)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.994368 p=0.993969 r=0.994769 (tp=2472 fp=15 fn=13 true=2485 pred=2487)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.995814 p=0.992122 r=0.999533 (tp=4282 fp=34 fn=2 true=4284 pred=4316)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.912913 p=0.917363 r=0.908506 (tp=1976 fp=178 fn=199 true=2175 pred=2154) acc=0.984385 (50560/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.882096 p=0.901786 r=0.863248 (tp=202 fp=22 fn=32 true=234 pred=224)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.756646 p=0.797414 r=0.719844 (tp=185 fp=47 fn=72 true=257 pred=232)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.843854 p=0.841060 r=0.846667 (tp=381 fp=72 fn=69 true=450 pred=453)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.974587 p=0.970281 r=0.978930 (tp=1208 fp=37 fn=26 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 4[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.995512 p=0.993111 r=0.997923 (tp=8650 fp=60 fn=18 true=8668 pred=8710) acc=0.999533 (203526/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.992826 p=0.988571 r=0.997118 (tp=1038 fp=12 fn=3 true=1041 pred=1050)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.983740 p=0.980324 r=0.987179 (tp=847 fp=17 fn=11 true=858 pred=864)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.997789 p=0.996787 r=0.998793 (tp=2482 fp=8 fn=3 true=2485 pred=2490)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.997206 p=0.994659 r=0.999767 (tp=4283 fp=23 fn=1 true=4284 pred=4306)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.912321 p=0.915702 r=0.908966 (tp=1977 fp=182 fn=198 true=2175 pred=2159) acc=0.984444 (50563/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.884532 p=0.902222 r=0.867521 (tp=203 fp=22 fn=31 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.752556 p=0.793103 r=0.715953 (tp=184 fp=48 fn=73 true=257 pred=232)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.841989 p=0.837363 r=0.846667 (tp=381 fp=74 fn=69 true=450 pred=455)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.974607 p=0.969527 r=0.979741 (tp=1209 fp=38 fn=25 true=1234 pred=1247)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 5[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.997120 p=0.995743 r=0.998500 (tp=8655 fp=37 fn=13 true=8668 pred=8692) acc=0.999715 (203563/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.994739 p=0.990476 r=0.999039 (tp=1040 fp=10 fn=1 true=1041 pred=1050)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.987784 p=0.986063 r=0.989510 (tp=849 fp=12 fn=9 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999195 p=0.999195 r=0.999195 (tp=2483 fp=2 fn=2 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.998368 p=0.996974 r=0.999767 (tp=4283 fp=13 fn=1 true=4284 pred=4296)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.914259 p=0.919145 r=0.909425 (tp=1978 fp=174 fn=197 true=2175 pred=2152) acc=0.984463 (50564/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.894737 p=0.918919 r=0.871795 (tp=204 fp=18 fn=30 true=234 pred=222)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.756646 p=0.797414 r=0.719844 (tp=185 fp=47 fn=72 true=257 pred=232)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842920 p=0.839207 r=0.846667 (tp=381 fp=73 fn=69 true=450 pred=454)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.974980 p=0.971061 r=0.978930 (tp=1208 fp=36 fn=26 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 6[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.997234 p=0.996087 r=0.998385 (tp=8654 fp=34 fn=14 true=8668 pred=8688) acc=0.999774 (203575/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.995692 p=0.992366 r=0.999039 (tp=1040 fp=8 fn=1 true=1041 pred=1048)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.987209 p=0.984919 r=0.989510 (tp=849 fp=13 fn=9 true=858 pred=862)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.998592 p=0.998391 r=0.998793 (tp=2482 fp=4 fn=3 true=2485 pred=2486)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.998834 p=0.997903 r=0.999767 (tp=4283 fp=9 fn=1 true=4284 pred=4292)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.914722 p=0.919610 r=0.909885 (tp=1979 fp=173 fn=196 true=2175 pred=2152) acc=0.984385 (50560/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.891304 p=0.907080 r=0.876068 (tp=205 fp=21 fn=29 true=234 pred=226)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.765432 p=0.812227 r=0.723735 (tp=186 fp=43 fn=71 true=257 pred=229)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.841639 p=0.838852 r=0.844444 (tp=380 fp=73 fn=70 true=450 pred=453)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.974980 p=0.971061 r=0.978930 (tp=1208 fp=36 fn=26 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 7[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998213 p=0.997351 r=0.999077 (tp=8660 fp=23 fn=8 true=8668 pred=8683) acc=0.999848 (203590/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.997604 p=0.995220 r=1.000000 (tp=1041 fp=5 fn=0 true=1041 pred=1046)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.989535 p=0.987239 r=0.991841 (tp=851 fp=11 fn=7 true=858 pred=862)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999598 p=0.999598 r=0.999598 (tp=2484 fp=1 fn=1 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999300 p=0.998601 r=1.000000 (tp=4284 fp=6 fn=0 true=4284 pred=4290)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.914775 p=0.921605 r=0.908046 (tp=1975 fp=168 fn=200 true=2175 pred=2143) acc=0.984463 (50564/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.892308 p=0.918552 r=0.867521 (tp=203 fp=18 fn=31 true=234 pred=221)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.758763 p=0.807018 r=0.715953 (tp=184 fp=44 fn=73 true=257 pred=228)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.844098 p=0.845982 r=0.842222 (tp=379 fp=69 fn=71 true=450 pred=448)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975000 p=0.970305 r=0.979741 (tp=1209 fp=37 fn=25 true=1234 pred=1246)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 8[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998386 p=0.997696 r=0.999077 (tp=8660 fp=20 fn=8 true=8668 pred=8680) acc=0.999872 (203595/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998561 p=0.997126 r=1.000000 (tp=1041 fp=3 fn=0 true=1041 pred=1044)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.989535 p=0.987239 r=0.991841 (tp=851 fp=11 fn=7 true=858 pred=862)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999300 p=0.998601 r=1.000000 (tp=4284 fp=6 fn=0 true=4284 pred=4290)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.915819 p=0.921359 r=0.910345 (tp=1980 fp=169 fn=195 true=2175 pred=2149) acc=0.984522 (50567/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.897603 p=0.915556 r=0.880342 (tp=206 fp=19 fn=28 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.771134 p=0.820175 r=0.727626 (tp=187 fp=41 fn=70 true=257 pred=228)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840355 p=0.838496 r=0.842222 (tp=379 fp=73 fn=71 true=450 pred=452)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.974980 p=0.971061 r=0.978930 (tp=1208 fp=36 fn=26 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 9[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998674 p=0.998156 r=0.999192 (tp=8661 fp=16 fn=7 true=8668 pred=8677) acc=0.999892 (203599/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998561 p=0.997126 r=1.000000 (tp=1041 fp=3 fn=0 true=1041 pred=1044)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991274 p=0.989547 r=0.993007 (tp=852 fp=9 fn=6 true=858 pred=861)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999533 p=0.999067 r=1.000000 (tp=4284 fp=4 fn=0 true=4284 pred=4288)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.915145 p=0.920465 r=0.909885 (tp=1979 fp=171 fn=196 true=2175 pred=2150) acc=0.984444 (50563/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.893246 p=0.911111 r=0.876068 (tp=205 fp=20 fn=29 true=234 pred=225)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.762887 p=0.811404 r=0.719844 (tp=185 fp=43 fn=72 true=257 pred=228)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842572 p=0.840708 r=0.844444 (tp=380 fp=72 fn=70 true=450 pred=452)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975393 p=0.971084 r=0.979741 (tp=1209 fp=36 fn=25 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 10[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.998847 p=0.998501 r=0.999192 (tp=8661 fp=13 fn=7 true=8668 pred=8674) acc=0.999912 (203603/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999040 p=0.998082 r=1.000000 (tp=1041 fp=2 fn=0 true=1041 pred=1043)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.991851 p=0.990698 r=0.993007 (tp=852 fp=8 fn=6 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.999799 p=1.000000 r=0.999598 (tp=2484 fp=0 fn=1 true=2485 pred=2484)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999650 p=0.999300 r=1.000000 (tp=4284 fp=3 fn=0 true=4284 pred=4287)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.915278 p=0.921678 r=0.908966 (tp=1977 fp=168 fn=198 true=2175 pred=2145) acc=0.984463 (50564/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.890830 p=0.910714 r=0.871795 (tp=204 fp=20 fn=30 true=234 pred=224)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.770186 p=0.823009 r=0.723735 (tp=186 fp=40 fn=71 true=257 pred=226)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.841287 p=0.840355 r=0.842222 (tp=379 fp=72 fn=71 true=450 pred=451)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.974980 p=0.971061 r=0.978930 (tp=1208 fp=36 fn=26 true=1234 pred=1244)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 11[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999020 p=0.998617 r=0.999423 (tp=8663 fp=12 fn=5 true=8668 pred=8675) acc=0.999921 (203605/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.998561 p=0.997126 r=1.000000 (tp=1041 fp=3 fn=0 true=1041 pred=1044)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.993015 p=0.991860 r=0.994172 (tp=853 fp=7 fn=5 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999533 r=1.000000 (tp=4284 fp=2 fn=0 true=4284 pred=4286)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.916031 p=0.921788 r=0.910345 (tp=1980 fp=168 fn=195 true=2175 pred=2148) acc=0.984541 (50568/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.892779 p=0.914798 r=0.871795 (tp=204 fp=19 fn=30 true=234 pred=223)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.772074 p=0.817391 r=0.731518 (tp=188 fp=42 fn=69 true=257 pred=230)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842222 p=0.842222 r=0.842222 (tp=379 fp=71 fn=71 true=450 pred=450)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975393 p=0.971084 r=0.979741 (tp=1209 fp=36 fn=25 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 12[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999077 p=0.998732 r=0.999423 (tp=8663 fp=11 fn=5 true=8668 pred=8674) acc=0.999921 (203605/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999040 p=0.998082 r=1.000000 (tp=1041 fp=2 fn=0 true=1041 pred=1043)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.993015 p=0.991860 r=0.994172 (tp=853 fp=7 fn=5 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999533 r=1.000000 (tp=4284 fp=2 fn=0 true=4284 pred=4286)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.914854 p=0.920820 r=0.908966 (tp=1977 fp=170 fn=198 true=2175 pred=2147) acc=0.984463 (50564/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.892779 p=0.914798 r=0.871795 (tp=204 fp=19 fn=30 true=234 pred=223)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.764463 p=0.814978 r=0.719844 (tp=185 fp=42 fn=72 true=257 pred=227)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.840355 p=0.838496 r=0.842222 (tp=379 fp=73 fn=71 true=450 pred=452)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975393 p=0.971084 r=0.979741 (tp=1209 fp=36 fn=25 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 13[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999077 p=0.998732 r=0.999423 (tp=8663 fp=11 fn=5 true=8668 pred=8674) acc=0.999926 (203606/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999040 p=0.998082 r=1.000000 (tp=1041 fp=2 fn=0 true=1041 pred=1043)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.993015 p=0.991860 r=0.994172 (tp=853 fp=7 fn=5 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999533 r=1.000000 (tp=4284 fp=2 fn=0 true=4284 pred=4286)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.915992 p=0.922181 r=0.909885 (tp=1979 fp=167 fn=196 true=2175 pred=2146) acc=0.984522 (50567/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.892779 p=0.914798 r=0.871795 (tp=204 fp=19 fn=30 true=234 pred=223)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.769547 p=0.816594 r=0.727626 (tp=187 fp=42 fn=70 true=257 pred=229)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.843159 p=0.844098 r=0.842222 (tp=379 fp=70 fn=71 true=450 pred=449)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975393 p=0.971084 r=0.979741 (tp=1209 fp=36 fn=25 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 14[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999077 p=0.998732 r=0.999423 (tp=8663 fp=11 fn=5 true=8668 pred=8674) acc=0.999926 (203606/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999040 p=0.998082 r=1.000000 (tp=1041 fp=2 fn=0 true=1041 pred=1043)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.993015 p=0.991860 r=0.994172 (tp=853 fp=7 fn=5 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999533 r=1.000000 (tp=4284 fp=2 fn=0 true=4284 pred=4286)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.915317 p=0.921286 r=0.909425 (tp=1978 fp=169 fn=197 true=2175 pred=2147) acc=0.984522 (50567/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.892779 p=0.914798 r=0.871795 (tp=204 fp=19 fn=30 true=234 pred=223)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.764463 p=0.814978 r=0.719844 (tp=185 fp=42 fn=72 true=257 pred=227)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842572 p=0.840708 r=0.844444 (tp=380 fp=72 fn=70 true=450 pred=452)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975393 p=0.971084 r=0.979741 (tp=1209 fp=36 fn=25 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration 1st[0m
+[0m[[0minfo[0m] [0mTRAIN[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.999077 p=0.998732 r=0.999423 (tp=8663 fp=11 fn=5 true=8668 pred=8674) acc=0.999926 (203606/203621)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.999040 p=0.998082 r=1.000000 (tp=1041 fp=2 fn=0 true=1041 pred=1043)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.993015 p=0.991860 r=0.994172 (tp=853 fp=7 fn=5 true=858 pred=860)[0m
+[0m[[0minfo[0m] [0mORG      f1=1.000000 p=1.000000 r=1.000000 (tp=2485 fp=0 fn=0 true=2485 pred=2485)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.999767 p=0.999533 r=1.000000 (tp=4284 fp=2 fn=0 true=4284 pred=4286)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mTEST[0m
+[0m[[0minfo[0m] [0mSegment evaluation[0m
+[0m[[0minfo[0m] [0mOVERALL  f1=0.915317 p=0.921286 r=0.909425 (tp=1978 fp=169 fn=197 true=2175 pred=2147) acc=0.984522 (50567/51362)[0m
+[0m[[0minfo[0m] [0mLOC      f1=0.892779 p=0.914798 r=0.871795 (tp=204 fp=19 fn=30 true=234 pred=223)[0m
+[0m[[0minfo[0m] [0mMISC     f1=0.764463 p=0.814978 r=0.719844 (tp=185 fp=42 fn=72 true=257 pred=227)[0m
+[0m[[0minfo[0m] [0mORG      f1=0.842572 p=0.840708 r=0.844444 (tp=380 fp=72 fn=70 true=450 pred=452)[0m
+[0m[[0minfo[0m] [0mPER      f1=0.975393 p=0.971084 r=0.979741 (tp=1209 fp=36 fn=25 true=1234 pred=1245)[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0minfo[0m] [0m()[0m
+[0m[[0minfo[0m] [0mIteration FINAL[0m

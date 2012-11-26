@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>edu.umass.cs.iesl</groupId>
+    <artifactId>ontoner_2.9.1</artifactId>
+    <packaging>jar</packaging>
+    <description>ontoner</description>
+    <version>0.1-SNAPSHOT</version>
+    <name>ontoner</name>
+    <organization>
+        <name>edu.umass.cs.iesl</name>
+    </organization>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <executions>
+
+                    <execution>
+                        <id>compile</id>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <phase>compile</phase>
+                    </execution>
+                    <execution>
+                        <id>test-compile</id>
+                        <goals>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <phase>test-compile</phase>
+                    </execution>
+                    <execution>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>cc.factorie</groupId>
+            <artifactId>factorie</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <!--<scope>system</scope>
+            <systemPath>/Users/anzaroot/citation/citationcrf/lib/factorie-0.10.2-SNAPSHOT.jar</systemPath>-->
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.9.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.9.1</artifactId>
+            <version>1.6.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>edu.umass.cs.iesl</groupId>
+            <artifactId>scalacommons_2.9.1</artifactId>
+            <version>0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>IESL Releases</id>
+            <name>IESL Repo</name>
+            <url>https://dev-iesl.cs.umass.edu/nexus/content/groups/public</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>IESL Snapshots</id>
+            <name>IESL Repo</name>
+            <url>https://dev-iesl.cs.umass.edu/nexus/content/groups/public-snapshots</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>dev.davidsoergel.com.snapshot</id>
+            <name>David Soergel Snapshot Repository</name>
+            <url>dav:http://dev.davidsoergel.com/nexus/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>IESLSnapshotRepo</id>
+            <name>IESL Snapshot Repo</name>
+            <url>https://dev-iesl.cs.umass.edu/nexus/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>ScalaToolsMaven2Repository</id>
+            <name>Scala-Tools Maven2 Repository</name>
+            <url>http://scala-tools.org/repo-releases/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+</project>
