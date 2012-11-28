@@ -28,7 +28,7 @@ object ConllChainNer extends edu.umass.cs.iesl.ontoner.ChainNer2 {
 
     aggregate = true
     twoStage = true
-    bP = false
+    bP = true
     ss = opts.sigmaSq.value.toDouble
 
     if (opts.lexiconDir.wasInvoked) {
