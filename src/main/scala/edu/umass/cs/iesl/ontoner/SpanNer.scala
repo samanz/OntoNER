@@ -303,8 +303,8 @@ class SpanNer {
   def train(trainFiles:Seq[String], testFile:String): Unit = {
     predictor.verbose = false
     // Read training and testing data.  The function 'featureExtractor' function is defined below.  Now training on seq == whole doc, not seq == sentece
-    val trainDocuments = trainFiles.flatMap(LoadConll2003.fromFilename(_))
-    val testDocuments = LoadOntoNer.fromFilename(testFile)
+    val trainDocuments = trainFiles.flatMap(LoadOntoNer.fromDirectory(_))
+    val testDocuments = LoadOntoNer.fromDirectory(testFile)
     println("Read "+trainDocuments.flatMap(_.sentences).size+" training sentences, and "+testDocuments.flatMap(_.sentences).size+" testing ")
 
   	(trainDocuments ++ testDocuments).foreach(_.tokens.map(token => token.attr += new SpanNerFeatures(token)))

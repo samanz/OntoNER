@@ -480,8 +480,8 @@ class ChainNer2 {
 
   def train(trainFilename:String, testFilename:String): Unit = {
     // Read in the data
-    val trainDocuments = LoadConll2003.fromFilename(trainFilename, true)
-    val testDocuments = LoadConll2003.fromFilename(testFilename, true)
+    val trainDocuments = LoadOntoNer.fromDirectory(trainFilename)
+    val testDocuments = LoadOntoNer.fromDirectory(testFilename)
 	
     println("Taking 100 and 20")
 
