@@ -666,7 +666,6 @@ class ChainNer2 {
       	for (i <- 0 until 3; label <- testLabels) predictor.process(label)
    
       printEvaluation(testDocuments, testDocuments, "FINAL")
-      outputCONLLformat(testDocuments, testFilename)
   }
 
   def convertToIOB(docs : Seq[Document]) : Unit = {

@@ -9,14 +9,10 @@ package edu.umass.cs.iesl.ontoner
 import cc.factorie.CategoricalDomain
 import cc.factorie.app.nlp.Token
 import cc.factorie.app.nlp.ner.ChainNerLabel
+import cc.factorie.app.nlp.Conll2003ChainNerLabel
 import cc.factorie.app.nlp.Document
 import cc.factorie.app.nlp.Sentence
 import scala.collection.mutable.ArrayBuffer
-
-object Conll2003NerDomain extends CategoricalDomain[String]
-class Conll2003ChainNerLabel(token:Token, initialValue:String) extends ChainNerLabel(token, initialValue) {
-  def domain = Conll2003NerDomain
-}
 
 object LoadOntoNer {
   import java.io.File
@@ -53,7 +49,7 @@ object LoadOntoNer {
         documents += document
       } else {
         val fields = line.split('\t')
-        val word = fields(0)
+        val word = fields(1)
         val ner = fields(7).stripLineEnd
         if (sentence.length > 0) document.appendString(" ")
         val token = new Token(sentence, word)

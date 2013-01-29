@@ -3,9 +3,10 @@ package edu.umass.cs.iesl.ontoner
 import cc.factorie._
 import cc.factorie.optimize._
 import cc.factorie.app.nlp._
-import cc.factorie.app.nlp.ner._
+
 import cc.factorie.util.DefaultCmdOptions
 import java.io.File
+import ner.{NerLabel, SpanNerFeaturesDomain, SpanNerFeatures}
 import scala.io.Source
 import cc.factorie.app.chain._
 import cc.factorie.app.strings._
@@ -16,6 +17,25 @@ abstract class SpanNerTemplate extends DotTemplate2[SpanNerLabel,NerSpan] {
   lazy val weights = new la.DenseTensor2(Conll2003NerDomain.size, SpanNerFeaturesDomain.dimensionSize) // TODO This ordering seems backwards
   def unroll1(label:SpanNerLabel) = Factor(label, label.span)
   def unroll2(span:NerSpan) = Factor(span.label, span)
+}
+
+class NerSpan(doc:Document, labelString:String, start:Int, length:Int)(implicit d:DiffList) extends TokenSpan(doc, start, length) with cc.factorie.app.nlp.coref.TokenSpanMention {
+  val label = new Conll2003SpanNerLabel(this, labelString)
+  def isCorrectNotBilou = this.tokens.forall(token => token.nerLabel.intValue == label.intValue) &&
+    (!hasPredecessor(1) || predecessor(1).nerLabel.intValue != label.intValue) &&
+    (!hasSuccessor(1) || successor(1).nerLabel.intValue != label.intValue)
+
+  def isCorrect : Boolean = {
+    ( (this.tokens.head.attr[Conll2003ChainNerLabel].target.categoryValue) == "B-"+label.categoryValue.substring(2) || this.tokens.head.attr[Conll2003ChainNerLabel].target.categoryValue == "U-"+label.categoryValue.substring(2) ) &&
+      this.tokens.forall(token => token.attr[Conll2003ChainNerLabel].target.categoryValue != "O" && token.attr[Conll2003ChainNerLabel].target.categoryValue.substring(2) == label.categoryValue.substring(2) ) &&
+      ( (this.tokens.head.attr[Conll2003ChainNerLabel].target.categoryValue == "U-"+label.categoryValue.substring(2) && this.length == 1)  || this.tokens.last.attr[Conll2003ChainNerLabel].target.categoryValue == "L-"+label.categoryValue.substring(2))
+  }
+
+  override def toString = "NerSpan("+length+","+label.categoryValue+":"+this.phrase+")"
+}
+abstract class SpanNerLabel(val span:NerSpan, initialValue:String) extends NerLabel(initialValue)
+class Conll2003SpanNerLabel(span:NerSpan, initialValue:String) extends SpanNerLabel(span, initialValue) {
+  def domain = Conll2003NerDomain
 }
 
 class SpanNerModel extends CombinedModel(
@@ -82,7 +102,8 @@ class SpanNerObjective extends TemplateModel(
       var allTokensCorrect = true
       for (token <- spanValue) {
         //if (token.trueLabelValue != "O") result += 2.0 else result -= 1.0
-        if (token.nerLabel.intValue == labelValue.intValue) {
+        //if (token.nerLabel.intValue == labelValue.intValue) {
+        if (token.nerLabel.target.categoryValue != "O" && token.nerLabel.target.categoryValue.substring(2) == labelValue.category.substring(2)) {
           result += trueLabelIncrement
           trueLabelIncrement += 2.0 // proportionally more benefit for longer sequences to help the longer seq steal tokens from the shorter one.
         } else if (token.nerLabel.target.categoryValue == "O") {
@@ -95,13 +116,87 @@ class SpanNerObjective extends TemplateModel(
         if (token.spans.length > 1) result -= 100.0 // penalize overlapping spans
       }
       if (allTokensCorrect) {
-        if (!spanValue.head.hasPrev || spanValue.head.prev.nerLabel.intValue != labelValue.intValue) result += 5.0 // reward for getting starting boundary correct
-        if (!spanValue.last.hasNext || spanValue.last.next.nerLabel.intValue != labelValue.intValue) result += 5.0 // reward for getting starting boundary correct
+        if (!spanValue.head.hasPrev || spanValue.head.prev.nerLabel.target.categoryValue == "O" || spanValue.head.prev.nerLabel.target.categoryValue.substring(2) != labelValue.category.substring(2)) result += 5.0 // reward for getting starting boundary correct
+        if (!spanValue.last.hasNext || spanValue.last.next.nerLabel.target.categoryValue == "O" || spanValue.last.next.nerLabel.target.categoryValue.substring(2) != labelValue.category.substring(2)) result += 5.0 // reward for getting starting boundary correct
+        //if (!spanValue.head.hasPrev || spanValue.head.prev.nerLabel.intValue != labelValue.intValue) result += 5.0 // reward for getting starting boundary correct
+        //if (!spanValue.last.hasNext || spanValue.last.next.nerLabel.intValue != labelValue.intValue) result += 5.0 // reward for getting starting boundary correct
       }
       result
     }
   }
 )
+
+class TokenSpanSampler(model:Model, objective:Model) extends SettingsSampler[Token](model, objective) {
+  // The proposer for changes to Spans touching this Token
+  def settings(token:Token) = new SettingIterator {
+    private val _seq = token.document
+    val changes = new scala.collection.mutable.ArrayBuffer[(DiffList)=>Unit];
+    val existingSpans = token.spansOfClass[NerSpan](classOf[NerSpan])
+    //println("existing spans = "+existingSpans)
+    for (span <- existingSpans) {
+      // Change label without changing boundaries
+      for (labelValue <- Conll2003NerDomain; if (labelValue.category.startsWith("I-")))
+        changes += {(d:DiffList) => span.label.set(labelValue)(d)}
+      // Delete the span
+      changes += {(d:DiffList) => span.delete(d)}
+      if (span.length > 1) {
+        // Trim last word, without changing label
+        changes += {(d:DiffList) => span.trimEnd(1)(d)}
+         // Trim first word, without changing label
+        changes += {(d:DiffList) => span.trimStart(1)(d)}
+        // Split off first and last word, with choices of the label of the split off portion
+        for (labelValue <- Conll2003NerDomain; if (labelValue.category.startsWith("I-"))) {
+          changes += {(d:DiffList) => { span.trimEnd(1)(d); new NerSpan(_seq, labelValue.category, span.end+1, 1)(d) } }
+          changes += {(d:DiffList) => { span.trimStart(1)(d); new NerSpan(_seq, labelValue.category, span.start-1, 1)(d) } }
+        }
+      }
+      if (span.length == 3) {
+        // Split span, dropping word in middle, preserving label value
+        changes += {(d:DiffList) => span.delete(d); new NerSpan(_seq, span.label.categoryValue, span.start, 1)(d); new NerSpan(_seq, span.label.categoryValue, span.end, 1)(d) }
+      }
+      // Add a new word to beginning, and change label
+      if (span.canPrepend(1)) {
+        for (labelValue <- Conll2003NerDomain; if (labelValue.category.startsWith("I-")))
+          changes += {(d:DiffList) => { span.label.set(labelValue)(d); span.prepend(1)(d); span.head.spans.filter(_ != span).foreach(_.trimEnd(1)(d)) } }
+      }
+      // Add a new word to the end, and change label
+      if (span.canAppend(1)) {
+        for (labelValue <- Conll2003NerDomain; if (labelValue.category.startsWith("I-")))
+          changes += {(d:DiffList) => { span.label.set(labelValue)(d); span.append(1)(d); span.last.spans.filter(_ != span).foreach(_.trimStart(1)(d)) } }
+      }
+      // Merge two neighboring spans having the same label
+      if (span.hasPredecessor(1)) {
+        val prevSpans = span.predecessor(1).endsSpansOfClass[NerSpan]
+        val prevSpan: NerSpan = if (prevSpans.size > 0) prevSpans.head else null
+        if (prevSpan != null && prevSpan.label.intValue == span.label.intValue) {
+          changes += {(d:DiffList) => { new NerSpan(_seq, span.label.categoryValue, prevSpan.start, prevSpan.length + span.length)(d); span.delete(d); prevSpan.delete(d)}}
+        }
+      }
+      if (span.hasSuccessor(1)) {
+        val nextSpans = span.successor(1).startsSpansOfClass[NerSpan]
+        val nextSpan: NerSpan = if (nextSpans.size > 0) nextSpans.head else null
+        if (nextSpan != null && nextSpan.label.intValue == span.label.intValue) {
+          changes += {(d:DiffList) => { new NerSpan(_seq, span.label.categoryValue, span.start, span.length + nextSpan.length)(d); span.delete(d); nextSpan.delete(d)}}
+        }
+      }
+      //if (span.length > 1) changes += {(d:DiffList) => { span.trimEnd(1)(d); new Span(labelValue.category, seq, position+1, 1)(d) } }
+    }
+    if (existingSpans.isEmpty) {
+      changes += {(d:DiffList) => {}} // The no-op action
+      for (labelValue <- Conll2003NerDomain; if (labelValue.category.startsWith("I-"))) {
+        // Add new length=1 span, for each label value
+        changes += {(d:DiffList) => new NerSpan(_seq, labelValue.category, token.position, 1)(d)}
+        //if (position != _seq.length-1) changes += {(d:DiffList) => new Span(labelValue.category, _seq, position, 2)(d)}
+      }
+    }
+    //println("Token.settings length="+changes.length)
+    var i = 0
+    def hasNext = i < changes.length
+    def next(d:DiffList) = { val d = new DiffList; changes(i).apply(d); i += 1; d }
+    def reset = i = 0
+  }
+}
+
 
 class SpanNerPredictor(model:Model) extends TokenSpanSampler(model, null) {
   def this(file:File) = this(new SpanNerModel(file))
@@ -329,7 +424,7 @@ class SpanNer {
           // Skip this token if it has the same spans as the previous token, avoiding duplicate sampling
           //if (t.hasPrev && t.prev.spans.sameElements(t.spans)) null.asInstanceOf[Token] else
           t 
-        } else t //null.asInstanceOf[Token]
+        } else t//null.asInstanceOf[Token]
       }
       override def proposalsHook(proposals:Seq[Proposal]): Unit = {
         if (verbose) { proposals.foreach(p => println(p+"  "+(if (p.modelScore > 0.0) "MM" else "")+(if (p.objectiveScore > 0.0) "OO" else ""))); println }
@@ -347,6 +442,10 @@ class SpanNer {
       learner.processContexts(trainDocuments.map(_.tokens).flatten)
       //learner.learningRate *= 0.9
       predictor.processAll(testDocuments.map(_.tokens).flatten)
+      println("Train Documents")
+      trainDocuments.take(5).foreach( printDocument _)
+      println("Test Documents")
+      testDocuments.take(5).foreach( printDocument _)
       println("*** TRAIN OUTPUT *** Iteration "+i); if (verbose) { trainDocuments.foreach(printDocument _); println; println }
       println("*** TEST OUTPUT *** Iteration "+i); if (verbose) { testDocuments.foreach(printDocument _); println; println }
       println ("Iteration %2d TRAIN EVAL ".format(i)+evalString(trainDocuments))
