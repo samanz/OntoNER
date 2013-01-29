@@ -22,7 +22,7 @@ object LoadOntoNer {
   import java.io.File
   def recursiveListFiles(f: File): Array[File] = {
     val these = f.listFiles
-    these ++ these.filter(_.isDirectory).flatMap(recursiveListFiles)
+    these
   }
 
   def fromDirectory(directory:String) : Seq[Document] = {
