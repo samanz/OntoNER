@@ -67,7 +67,7 @@ class SpanNerModel extends CombinedModel(
     // Label of span that preceeds or follows this one
     //new Template2[Span,Span] with Statistics2[Label,Label] { def unroll1(span:Span) = { val result = Nil; var t = span.head; while (t.hasPrev) { if } } }
   ) {
-  def this(file:File) = { this(); this.load(file.getPath)}
+  def this(file:File) = { this(); } //this.load(file.getPath)}
 }
 
 // The training objective
@@ -103,6 +103,37 @@ class SpanNerObjective extends TemplateModel(
   }
 )
 
+class SpanNerPredictor(model:Model) extends TokenSpanSampler(model, null) {
+  def this(file:File) = this(new SpanNerModel(file))
+  var verbose = false
+  temperature = 0.0001
+  override def preProcessHook(t:Token): Token = {
+    super.preProcessHook(t)
+    if (t.isCapitalized) {
+      if (verbose) t.spansOfClass(classOf[NerSpan]).foreach(s => println({if (s.isCorrect) "CORRECT " else "INCORRECT "}+s))
+      t
+    } else t //null.asInstanceOf[Token]
+  }
+  override def proposalsHook(proposals:Seq[Proposal]): Unit = {
+    if (verbose) println("Test proposal")
+    //proposals.foreach(println(_)); println
+    if (verbose) { proposals.foreach(p => println(p+"  "+(if (p.modelScore > 0.0) "MM" else ""))); println }
+    super.proposalsHook(proposals)
+  }
+  override def proposalHook(proposal:Proposal): Unit = {
+    super.proposalHook(proposal)
+    // If we changed the possible world last time, try sampling it again right away to see if we can make more changes
+    // TODO Disabled for now, but this should be re-enabled
+    if (false && proposal.diff.size > 0) {
+      val spanDiffs = proposal.diff.filter(d => d.variable match { case s:NerSpan => s.present; case _ => false })
+      spanDiffs.foreach(_.variable match {
+        case span:NerSpan => if (span.present) { if (verbose) println("RECURSIVE PROPOSAL"); this.process(span.last) }
+        case _ => {}
+      })
+    }
+  }
+}
+
 
 class SpanNer {
   var verbose = false
@@ -120,7 +151,7 @@ class SpanNer {
   var count = 0
   var didagg = false
 
-  def initFeatures(document:Document, vf:Token=>CategoricalTensorVar[String]): Unit = {
+  def initFeatures(document:Document, vf:Token=>CategoricalDimensionTensorVar[String]): Unit = {
     //println("Count" + count)
     count=count+1
     import cc.factorie.app.strings.simplifyDigits
@@ -230,7 +261,7 @@ class SpanNer {
       return List()
   }
   
-  def addContextFeatures[A<:Observation[A]](t : Token, from : Token, vf:Token=>CategoricalTensorVar[String]) : Unit = {
+  def addContextFeatures[A<:Observation[A]](t : Token, from : Token, vf:Token=>CategoricalDimensionTensorVar[String]) : Unit = {
     didagg = true
     vf(t) ++= prevWindowNum(from,2).map(t2 => "CONTEXT="+simplifyDigits(t2._2.string).toLowerCase + "@-" + t2._1)
     vf(t) ++= nextWindowNum(from, 2).map(t2 => "CONTEXT="+simplifyDigits(t2._2.string).toLowerCase + "@" + t2._1)
@@ -249,7 +280,7 @@ class SpanNer {
     }
   }
   
-  def aggregateContext[A<:Observation[A]](token : Token, vf:Token=>CategoricalTensorVar[String]) : Unit = {
+  def aggregateContext[A<:Observation[A]](token : Token, vf:Token=>CategoricalDimensionTensorVar[String]) : Unit = {
     var count = 0
     var compareToken : Token = token
     while(count < 200 && compareToken.hasPrev) {
@@ -270,10 +301,10 @@ class SpanNer {
 
 
   def train(trainFiles:Seq[String], testFile:String): Unit = {
-    predictor.verbose = true
+    predictor.verbose = false
     // Read training and testing data.  The function 'featureExtractor' function is defined below.  Now training on seq == whole doc, not seq == sentece
     val trainDocuments = trainFiles.flatMap(LoadConll2003.fromFilename(_))
-    val testDocuments = LoadConll2003.fromFilename(testFile)
+    val testDocuments = LoadOntoNer.fromFilename(testFile)
     println("Read "+trainDocuments.flatMap(_.sentences).size+" training sentences, and "+testDocuments.flatMap(_.sentences).size+" testing ")
 
   	(trainDocuments ++ testDocuments).foreach(_.tokens.map(token => token.attr += new SpanNerFeatures(token)))
@@ -298,14 +329,14 @@ class SpanNer {
           // Skip this token if it has the same spans as the previous token, avoiding duplicate sampling
           //if (t.hasPrev && t.prev.spans.sameElements(t.spans)) null.asInstanceOf[Token] else
           t 
-        } else null.asInstanceOf[Token] 
+        } else t //null.asInstanceOf[Token]
       }
       override def proposalsHook(proposals:Seq[Proposal]): Unit = {
         if (verbose) { proposals.foreach(p => println(p+"  "+(if (p.modelScore > 0.0) "MM" else "")+(if (p.objectiveScore > 0.0) "OO" else ""))); println }
         super.proposalsHook(proposals)
       }
     }
-    val learner = new SampleRankTrainer(sampler, new MIRA)
+    val learner = new SampleRankTrainer(sampler, new StepwiseGradientAscent(0.01))
     
     
     // Train!
@@ -393,7 +424,9 @@ object SpanNer extends SpanNer {
       val extended = new CmdOption("extended", "Turn on 2 stage feature.")
     }
     opts.parse(args)
-    
+
+    this.verbose = false
+
     val lexes = List("WikiArtWork.lst", "WikiArtWorkRedirects.lst", "WikiCompetitionsBattlesEvents.lst", "WikiCompetitionsBattlesEventsRedirects.lst", "WikiFilms.lst", "WikiFilmsRedirects.lst", "WikiLocations.lst", "WikiLocationsRedirects.lst", "WikiManMadeObjectNames.lst", "WikiManMadeObjectNamesRedirects.lst", "WikiOrganizations.lst", "WikiOrganizationsRedirects.lst", "WikiPeople.lst", "WikiPeopleRedirects.lst", "WikiSongs.lst", "WikiSongsRedirects.lst", "cardinalNumber.txt", "currencyFinal.txt", "known_corporations.lst", "known_country.lst", "known_jobs.lst", "known_name.lst", "known_names.big.lst", "known_nationalities.lst",  "known_state.lst", "known_title.lst", "measurments.txt", "ordinalNumber.txt", "temporal_words.txt")
 
     if (opts.lexiconDir.wasInvoked) {
@@ -421,7 +454,7 @@ object SpanNer extends SpanNer {
     }
     
     train(opts.trainFile.value, opts.testFile.value)
-    if (opts.modelDir.wasInvoked) model.save(opts.modelDir.value)   
+    //if (opts.modelDir.wasInvoked) model.save(opts.modelDir.value)
   }
 }
 

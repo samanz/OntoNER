@@ -55,13 +55,13 @@ object ConllChainNer extends edu.umass.cs.iesl.ontoner.ChainNer2 {
     }
     
    if(opts.justTest.wasInvoked) { 
-		model.load(opts.modelDir.value)
+		//model.load(opts.modelDir.value)
 		test(opts.testFile.value)
 	} else {
       train(opts.trainFile.value, opts.testFile.value)
-      if (opts.modelDir.wasInvoked) {
-		model.save(opts.modelDir.value)
-	  }
+      //if (opts.modelDir.wasInvoked) {
+		//model.save(opts.modelDir.value)
+	  //}
     }
   }
 }

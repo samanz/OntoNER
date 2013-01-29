@@ -12,7 +12,7 @@ import scala.io._
 import java.io.{FileWriter, BufferedWriter, File}
 import scala.math.round
 
-object ChainNer2FeaturesDomain extends CategoricalTensorDomain[String]
+object ChainNer2FeaturesDomain extends CategoricalDimensionTensorDomain[String]
 class ChainNer2Features(val token:Token) extends BinaryFeatureVectorVariable[String] {
   def domain = ChainNer2FeaturesDomain
   override def skipNonCategories = true
@@ -203,7 +203,7 @@ class ChainNer2 {
       return List()
   }
   
-  def addContextFeatures[A<:Observation[A]](t : Token, from : Token, vf:Token=>CategoricalTensorVar[String]) : Unit = {
+  def addContextFeatures[A<:Observation[A]](t : Token, from : Token, vf:Token=>CategoricalDimensionTensorVar[String]) : Unit = {
     didagg = true
     vf(t) ++= prevWindowNum(from,2).map(t2 => "CONTEXT="+simplifyDigits(t2._2.string).toLowerCase + "@-" + t2._1)
     vf(t) ++= nextWindowNum(from, 2).map(t2 => "CONTEXT="+simplifyDigits(t2._2.string).toLowerCase + "@" + t2._1)
@@ -221,8 +221,8 @@ class ChainNer2 {
 		}
     }
   }
-  
-  def aggregateContext[A<:Observation[A]](token : Token, vf:Token=>CategoricalTensorVar[String]) : Unit = {
+
+  def aggregateContext[A<:Observation[A]](token : Token, vf:Token=>CategoricalDimensionTensorVar[String]) : Unit = {
     var count = 0
     var compareToken : Token = token
     while(count < 200 && compareToken.hasPrev) {
@@ -242,7 +242,7 @@ class ChainNer2 {
   }
   
 
-  def initFeatures(document:Document, vf:Token=>CategoricalTensorVar[String]): Unit = {
+  def initFeatures(document:Document, vf:Token=>CategoricalDimensionTensorVar[String]): Unit = {
     //println("Count" + count)
     count=count+1
     import cc.factorie.app.strings.simplifyDigits
@@ -280,7 +280,6 @@ class ChainNer2 {
     }
     for (sentence <- document.sentences)
       //cc.factorie.app.chain.Observations.addNeighboringFeatureConjunctions(sentence, (t:Token)=>t.attr[ChainNerFeatures], "^[^@]*$", List(0), List(0,0), List(0,-1), List(0,1), List(1), List(2), List(-1), List(-2))
-
       cc.factorie.app.chain.Observations.addNeighboringFeatureConjunctions(sentence.tokens, vf, "^[^@]*$", List(0), List(1), List(2), List(-1), List(-2))
       // If the sentence contains no lowercase letters, tell all tokens in the sentence they are part of an uppercase sentence
       // document.sentences.foreach(s => if (!s.exists(_.containsLowerCase)) s.foreach(t => t.attr[ChainNerFeatures] += "SENTENCEUPPERCASE"))
@@ -524,8 +523,7 @@ class ChainNer2 {
 //		      optimizer.optimize()
       val examples = vars.map(v => new LikelihoodExample(v.toSeq, InferByBPChainSum))
       val trainer = new BatchTrainer(model, new LBFGS with L2Regularization)
-			trainer.trainFromExamples(examples)
-      //(1 to 100).foreach(i => trainer.processExamples(examples))
+      trainer.trainFromExamples(examples)
 
       (trainLabels ++ testLabels).foreach(_.setRandomly())
 	    
@@ -539,10 +537,9 @@ class ChainNer2 {
 
       // Train primary (independent classifier) model
       // Train secondary (markov) model
-      val learner1 = new SampleRankTrainer(new GibbsSampler(model, objective), new ConfidenceWeighting(model, 0.01))
+      val learner1 = new SampleRankTrainer(new GibbsSampler(model, objective), new StepwiseGradientAscent(1.0))
       //val predictor = new VariableSettingsSampler[ChainNerLabel](model, null)
       val predictor1 = new IteratedConditionalModes[ChainNerLabel](model) // {temperature=0.01}
-
 
       //(trainDocuments ++ testDocuments).foreach(d => initSecondaryFeatures(d))
       println("Example Token features")
@@ -589,10 +586,9 @@ class ChainNer2 {
 //		    }
 //		      optimizer1.optimize()
 //		      optimizer1.optimize()
-      val examples = vars1.map(v => new LikelihoodExample(v.toSeq, InferByBPChainSum))
-      val trainer = new BatchTrainer(model)
-			trainer.trainFromExamples(examples)
-      //(1 to 100).foreach(i => trainer.processExamples(pieces))
+        val examples = vars1.map(v => new LikelihoodExample(v.toSeq, InferByBPChainSum))
+        val trainer = new BatchTrainer(model)
+        trainer.trainFromExamples(examples)
 		      
 			  (trainLabels ++ testLabels).foreach(_.setRandomly())
 	    
@@ -602,9 +598,9 @@ class ChainNer2 {
 	} else {
       
       // Train secondary (markov) model
-      	val learner = new SampleRankTrainer(new GibbsSampler(model2, objective), new ConfidenceWeighting(model2, 0.01))
-      //val predictor = new VariableSettingsSampler[ChainNerLabel](model, null)
-      	val predictor = new VariableSettingsSampler[ChainNerLabel](model2) {temperature=0.01}
+        val learner = new SampleRankTrainer(new GibbsSampler(model2, objective), new MIRA)
+        //val predictor = new VariableSettingsSampler[ChainNerLabel](model, null)
+        val predictor = new VariableSettingsSampler[ChainNerLabel](model2) {temperature=0.01}
 
       	for (iteration <- 1 until 8) {
         	learner.processContexts(trainLabels)
@@ -938,7 +934,6 @@ object ChainNer2 extends ChainNer2 {
     }
     
     if (opts.runPlainFiles.wasInvoked) {
-      model.load(opts.modelDir.value)
       for (filename <- opts.runPlainFiles.value) {
         val document = LoadPlainText.fromFile(new java.io.File(filename), false)
         //println("ChainNer plain document: <START>"+document.string+"<END>")
@@ -950,19 +945,12 @@ object ChainNer2 extends ChainNer2 {
         printSGML(document.tokens)
       }
     } else if(opts.justTest.wasInvoked) { 
-		model.load(opts.modelDir.value)
-        model2.load(opts.modelDir.value + "2")
 		test(opts.testFile.value)
 	} else if (opts.runXmlDir.wasInvoked) {
       //println("statClasses "+model.templatesOf[VectorTemplate].toList.map(_.statClasses))
-      model.load(opts.modelDir.value)
       //run(opts.runXmlDir.value)
     } else {
       train(opts.trainFile.value, opts.testFile.value)
-      if (opts.modelDir.wasInvoked) {
-		model.save(opts.modelDir.value)
-		model2.save(opts.modelDir.value + "2")
-	  }
     }
     //if (args.length != 2) throw new Error("Usage: NER trainfile testfile.")
   }
